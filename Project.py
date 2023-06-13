@@ -1,5 +1,3 @@
-from typing import List, Any
-
 import pyttsx3
 from pyttsx3 import Engine
 
@@ -95,11 +93,11 @@ phone_dict = {"Jordan": "+22962747600", "Mjd": "+2348140257660", "Zita": "+91836
               "Donald Idohou": "+22961876476", "Papa": "+22997984266", "Vishnu": "+919591590281",
               "Saphir": "+23793195666", "Johnstone": "+263777128928", "Rufin": "+22990166164",
               "Vikanshi": "+919012677280", "Casimir": "+918968793478", "Sylvain LPU": "+22991128942",
-              "Robert LPU TAGNON": "+22961022116"}
+              "Robert LPU TAGNON": "+22961022116", "Tonton Rufin": "+22967601588"}
 
 phone_dict2 = {1: "+22962747600", 2: "+2348140257660", 3: "+918360222648", 4: "+22961876476", 5: "+22997984266",
                6: "+919591590281", 7: "+23793195666", 8: "+263777128928", 9: "+22990166164", 10: "+919012677280",
-               11: "+918968793478", 12: "+22991128942", 13: "+22961022116"}
+               11: "+918968793478", 12: "+22991128942", 13: "+22961022116", 14: "+22967601588"}
 
 desired_number_list = display_contact_list(phone_dict, phone_dict2)
 message_type = display_message_type()
