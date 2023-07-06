@@ -1,7 +1,7 @@
 import threading
 import socket
 
-host = '127.0.0.1'
+host = '192.168.1.102'
 port = 59000
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server.bind((host, port))
@@ -42,6 +42,7 @@ def receive():
         alias = client.recv(1024)
         aliases.append(alias)
         clients.append(client)
+        #print(f'The alias of this client is  {alias}'.encode('utf-8'))
         print(((f'The alias of this client is {alias}'.encode('utf-8')).decode('utf-8')))
         broadcast(f'{alias} has connected to the chat room'.encode('utf-8'))
         client.send('you are now connected!'.encode('utf-8'))

@@ -1,10 +1,10 @@
 import pyttsx3
 from pyttsx3 import Engine
 
-import pywhatkit as wh
+from pywhatkit import sendwhatmsg_instantly, system, sendwhatmsg
 
 # initialising the whatsapp system
-wh.system()
+system()
 
 speaker: Engine = pyttsx3.init()
 speaker.setProperty('rate', 150)
@@ -89,15 +89,14 @@ def sendProgrammedDetails():
         raise Exception(" Wrong Input")
 
 
-phone_dict = {"Jordan": "+22962747600", "Mjd": "+2348140257660", "Zita": "+918360222648",
+phone_dict = {"Jordan": "+22962747600", "Mjd": "+2348140257660", "Zita": "+918360222648", "Johnstone": "+263777128928",
               "Donald Idohou": "+22961876476", "Papa": "+22997984266", "Vishnu": "+919591590281",
-              "Saphir": "+23793195666", "Johnstone": "+263777128928", "Rufin": "+22990166164",
-              "Vikanshi": "+919012677280", "Casimir": "+918968793478", "Sylvain LPU": "+22991128942",
-              "Robert LPU TAGNON": "+22961022116", "Tonton Rufin": "+22967601588"}
+              "Saphir": "+23793195666", "Rufin": "+22990166164", "Vikanshi": "+919012677280", "Casimir": "+918968793478"
+    , "Tonton Rufin": "+22967601588", "Romualdine": "+22951864306", "Mr François": "+22997444472"}
 
-phone_dict2 = {1: "+22962747600", 2: "+2348140257660", 3: "+918360222648", 4: "+22961876476", 5: "+22997984266",
-               6: "+919591590281", 7: "+23793195666", 8: "+263777128928", 9: "+22990166164", 10: "+919012677280",
-               11: "+918968793478", 12: "+22991128942", 13: "+22961022116", 14: "+22967601588"}
+phone_dict2 = {1: "+22962747600", 2: "+2348140257660", 3: "+918360222648", 4: "+263777128928", 5: "+22961876476",
+               6: "+22997984266", 7: "+919591590281", 8: "+23793195666", 9: "+22990166164", 10: "+919012677280",
+               11: "+918968793478", 12: "+22967601588", 13: "+22951864306", 14: "+22997444472"}
 
 desired_number_list = display_contact_list(phone_dict, phone_dict2)
 message_type = display_message_type()
@@ -111,7 +110,7 @@ match message_type:
     case 1:
         try:
             for desired_number in desired_number_list:
-                wh.sendwhatmsg_instantly(desired_number, desired_message, 15, True, 5)
+                sendwhatmsg_instantly(desired_number, desired_message, 15, True, 7)
                 print("Successfully Sent!")
         except:
             print("Error while sending ")
@@ -119,8 +118,8 @@ match message_type:
         try:
             planned_details = sendProgrammedDetails()
             for desired_number in desired_number_list:
-                wh.sendwhatmsg(desired_number, desired_message, planned_details.get("hours"),
-                               planned_details.get("minutes"), 15, True, 5)
+                sendwhatmsg(desired_number, desired_message, planned_details.get("hours"),
+                            planned_details.get("minutes"), 15, True, 10)
                 print("Successfully Sent !")
 
                 engine = pyttsx3.init()
@@ -138,3 +137,4 @@ match message_type:
             engine.runAndWait()
 
 speaker.stop()
+"""Bonjour Tonton! Comment allez-vous?"""
