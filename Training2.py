@@ -8,7 +8,6 @@ import time
 obj = time.gmtime()
 epoch = time.asctime(obj)
 
-#list1 = ["Water", "Papaye", "Mangue", "Orange", "Banana", "Pomme", "Tomate", "Carotte", "Pastèque", "Ananas"]
 """fruits = {'Water': 20, 'Papaye': 30, 'Mangue': 25, 'Orange': 35, 'Banana': 40, 'Pomme': 50, 'Tomate': 80, 'Carotte': 60,
           'Pastèque': 70, 'Ananas': 90}"""
 
@@ -59,39 +58,3 @@ else:
 
 print(fruit)
 exit()
-
-if x in list1 and x in fruits:
-
-    quantity = abs(int(input("Enter the quantity: ")))
-    if Max_quan >= quantity >= Min_quan:
-        print("Available")
-
-        def bill():
-            print("Name: " + Name)
-            line = "=" * 2 * len(Name)
-            print(line)
-            print("Product ordered: " + y)
-            line1 = "=" * 4 * len(y)
-            print(line1)
-            print("Quantity ordered: ", quantity)
-            line2 = "=" * 10 * 2
-            print(line2)
-            print("Price: ", p)
-            print(line2)
-            print("Total Amount: ", p * quantity)
-            print(line2)
-            print("Order date:", epoch)
-            print(line2)
-
-    elif quantity != Min_quan or quantity != Max_quan:
-        print("Quantity out of range")
-        print("The quantity available is: ", Max_quan)
-        exit()
-
-else:
-    print("Sorry!! Product out of Stock")
-    exit()
-
-
-print("\n")
-bill()
