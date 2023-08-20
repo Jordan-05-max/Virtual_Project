@@ -12,22 +12,36 @@ import pyautogui
 
 
 # Functions
-# Getting Operating system
+
+#
 def system() -> str:
+    """
+    system() gets the operating system on which app is working
+    :return: system name
+    """
     sys = pywhatkit.system()
     print(sys)
     return sys
 
 
 def website():
+    """
+    updates the whatsapp website by opening and closing the website
+    :return: none
+    """
     web.open(f"https://web.whatsapp.com/")
-    time.sleep(20)
+    time.sleep(240)
     pyautogui.hotkey('ctrl', 'w')
-    time.sleep(2)
+    time.sleep(240)
     pyautogui.hotkey('alt', 'f4')
 
 
 def talk(text: str):
+    """
+    talk() read the value of the parameter that is parsed into the function
+    :param text: str
+    :return: speaker.say(param)
+    """
     speaker: Engine = pyttsx3.init()
     speaker.setProperty('rate', 150)
     voices = speaker.getProperty('voices')
@@ -103,9 +117,14 @@ def sendProgrammedDetails():
         raise Exception(" Wrong Input")
 
 
-def name(phone):
+def get_name(phone_number):
+    """
+    name() function gets the name of the selected phone number
+    :param phone: Any
+    :return: names
+    """
     dict2_list = list(phone_dict2.values())
-    index = dict2_list.index(phone)
+    index = dict2_list.index(phone_number)
     dict_list = list(phone_dict.keys())
     names = dict_list[index]
     print(names)
@@ -134,7 +153,7 @@ print(message_type)
 match message_type:
     case 1:
         try:
-            #  system()
+            system()
             website()
             desired_number_list = display_contact_list(phone_dict, phone_dict2)
             instant_sends = []
@@ -157,7 +176,7 @@ match message_type:
 
     case 2:
         try:
-            # system()
+            system()
             website()
             desired_number_list = display_contact_list(phone_dict, phone_dict2)
             plans = []
@@ -179,7 +198,7 @@ match message_type:
 
     case 3:
         try:
-            # system()
+            system()
             website()
             diffList = display_contact_list(phone_dict, phone_dict2)
             desired_message = getMessage()

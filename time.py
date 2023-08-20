@@ -1,16 +1,14 @@
-import pyttsx3
- 
-# init function to get an engine instance for the speech synthesis
-engine = pyttsx3.init()
- 
-# say method on the engine that passing input text to be spoken
-engine.say('Hello sir, how may I help you, sir.')
- 
-# run and wait method, it processes the voice commands.
-engine.runAndWait()
+from datetime import datetime
 
+def Time():
+    now = datetime.now()
+    current_time = now.strftime("%H:%M:%S")
+    print(f"Current Time = {current_time}")
 
-""""if 1 <= x <= length:
-    index = x-1
-    y = list1[index]
-    p = fruits.get(y)"""
+def Date():
+    import datetime
+    current_date = datetime.date.today().strftime("%d/%m/%Y")
+    print(f"Current Date = {current_date}")
+
+Time()
+Date()
