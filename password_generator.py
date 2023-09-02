@@ -10,7 +10,7 @@ purpose = input("Enter the purpose: ")
 length = int(input("Input length: "))
 
 
-def generate_password(Length: int):
+def generate_password(Length: int) -> str:
     """
     Generates strong password with a specific length
     :param Length: Integer value given by the user
@@ -22,7 +22,7 @@ def generate_password(Length: int):
     return passwords
 
 
-def timez():
+def timez() -> str:
     """
     Gives exact time of creation of password in format HH:MM:SS
     :return: current time
@@ -33,7 +33,7 @@ def timez():
     return current_time
 
 
-def dates():
+def dates() -> str:
     """
     Gives date on which password is being generated in format DD/MM/YYYY
     :return: current date
@@ -44,7 +44,7 @@ def dates():
     return current_date
 
 
-def add():
+def add() -> None:
     """
     Connected to a database, it adds details into psw database
     :return: none

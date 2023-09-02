@@ -1,7 +1,8 @@
 import time
 
+import pywp
 import pywhatkit
-from pywhatkit import sendwhatmsg_instantly, sendwhatmsg
+from pywhatkit import sendwhatmsg_instantly, sendwhatmsg, system
 
 import pyttsx3
 from pyttsx3 import Engine
@@ -10,7 +11,7 @@ import webbrowser as web
 
 import pyautogui
 
-
+# pywhatkit.start_server()
 # Functions
 
 #
@@ -19,7 +20,7 @@ def system() -> str:
     system() gets the operating system on which app is working
     :return: system name
     """
-    sys = pywhatkit.system()
+    sys = system()
     print(sys)
     return sys
 
@@ -32,7 +33,7 @@ def website():
     web.open(f"https://web.whatsapp.com/")
     time.sleep(240)
     pyautogui.hotkey('ctrl', 'w')
-    time.sleep(240)
+    time.sleep(20)
     pyautogui.hotkey('alt', 'f4')
 
 
@@ -140,7 +141,7 @@ phone_dict2 = {1: "+22962747600", 2: "+2348140257660", 3: "+918360222648", 4: "+
                6: "+263777128928", 7: "+22961876476", 8: "+919591590281", 9: "+22990166164", 10: "+919012677280",
                11: "+22951864306", 12: "+918968793478", 13: "+22967601588", 14: "+22997444472"}
 
-message_type = display_message_type()
+message_type: int = display_message_type()
 print(message_type)
 
 # desired_name = ""
@@ -154,7 +155,7 @@ match message_type:
     case 1:
         try:
             system()
-            website()
+            # website()
             desired_number_list = display_contact_list(phone_dict, phone_dict2)
             instant_sends = []
             for desired_number in desired_number_list:
@@ -165,7 +166,7 @@ match message_type:
                 # print(instant_sends)
             for instant_send in instant_sends:
                 # print(instant_send)
-                sendwhatmsg_instantly(instant_send[1], instant_send[2], 20, True, 7)
+                pywhatkit.sendwhatmsg_instantly(instant_send[1], instant_send[2], 20, True, 7)
                 print("Successfully Sent!")
                 talk("Message Successfully Sent to" + instant_send[0])
 
@@ -177,7 +178,7 @@ match message_type:
     case 2:
         try:
             system()
-            website()
+            #website()
             desired_number_list = display_contact_list(phone_dict, phone_dict2)
             plans = []
             for desired_number in desired_number_list:
