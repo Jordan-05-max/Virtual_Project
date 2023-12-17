@@ -18,13 +18,14 @@ def read(texts: str):
     speaker.setProperty('rate', 150)
     fr_voice_id = "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\TTS_MS_FR-FR_HORTENSE_11.0"
     speaker.setProperty('voices', fr_voice_id)
-    speaker.say(texts)
-    speaker.runAndWait()
+    # speaker.say(texts)
+    # speaker.runAndWait()
     return speaker.say(texts)
 
 for i in range(1, pages+1):
     pdf = pdf_read.pages[i-1]
     read_pdf = pdf.extract_text()
-    print(f"page:{i} {read_pdf}")
+    print(f"page:{i} {read_pdf}\n")
     read(f"page {i} {read_pdf}")
-    speaker.save_to_file(read_pdf, "L'art de négocier avec la méthode Harvard.wav")
+    speaker.save_to_file(read_pdf, "L'art de négocier avec la méthode Harvard.mp3")
+    speaker.runAndWait()

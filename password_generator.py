@@ -5,9 +5,7 @@ from password_Db import dbpassword
 
 db = dbpassword("psw.db")
 
-name = input("Enter your name: ")
-purpose = input("Enter the purpose: ")
-length = int(input("Input length: "))
+
 
 
 def generate_password(Length: int) -> str:
@@ -44,15 +42,103 @@ def dates() -> str:
     return current_date
 
 
-def add() -> None:
+def add_psw() -> None:
     """
-    Connected to a database, it adds details into psw database
-    :return: none
-    """
+     Connects to psw database, it adds details into psw database
+     :return: none
+     """
     db.inserts(name, purpose, psw, length, dates(), timez())
+
+
+def get_psw() -> None:
+    """
+    Fetches data from database,and display data saved into psw database
+    :return: None
+    """
+    db.fetch()
+
+
+def delete_psw(Purpose) -> None:
+     """
+     Deletes latest generated password from database
+     :param Purpose: a string primary key
+     :return: None
+     """
+     db.remove(Purpose)
+
+
+def display_menu() -> int:
+    """
+    Displays a menu for password generation
+    :return: integer
+    """
+    print("What do you wish to do?: \n")
+    print("1-Generate password\n")
+    print("2-Display database data \n")
+    choice = input("Please enter your numbers wish: ")
+    if choice.isdigit():
+        choice = int(choice)
+        if 1 <= choice <= 2:
+            return choice
+        else:
+            print("Invalid Option")
+            exit()
+    else:
+        raise Exception("Incorrect Input")
 
 
 # timez()
 # dates()
-psw = generate_password(length)
-add()
+
+def saving():
+    """
+    Menu to save generated password or not
+    :return: choix
+    """
+    print("Do you want to save the password?\n")
+    print("1-Yes\n")
+    print("2-No")
+    choix = int(input("Your choice please: "))
+    if 1 <= choix <= 2:
+        return choix
+    else:
+        print("Invalid option")
+        exit()
+
+
+menu: int = display_menu()
+
+match menu:
+    case 1:
+        try:
+            name = input("Enter your name: ")
+            purpose = input("Enter the purpose: ")
+            length = int(input("Input length: "))
+
+            psw = generate_password(length)
+            saving_opt = saving()
+
+            match saving_opt:
+                case 1:
+                    try:
+                        add_psw()
+                        print("Successfully saved into database")
+                    except:
+                        print("An error occurred")
+
+                case 2:
+                    try:
+                        delete_psw(purpose)
+                        print("Password unsaved in database")
+                        # exit()
+                    except:
+                        print("An error occurred while deleting")
+
+        except:
+            print("Mismatch!\nNot able to save")
+    case 2:
+        try:
+            get_psw()
+            print("Password list printed")
+        except:
+            print("Mismatch!\nNot able to get database")
