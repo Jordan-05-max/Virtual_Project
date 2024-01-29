@@ -15,7 +15,7 @@ except Exception as e:
 
 time.sleep(2)
 soup = BeautifulSoup(page.text, 'html.parser')
-links = soup.find_all('div', attrs={'class':'cb-nws-intr'})
+links = soup.find_all('div', attrs={'class': 'cb-nws-intr'})
 
 for i in links:
     print(i.text)
