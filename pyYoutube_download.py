@@ -23,7 +23,8 @@ def downloader(link, path: str, filename: str):
 
 url = input("Enter the video's url: ")
 file_name = input("Filename: ")
-file = f"{file_name}.mp4"
+# file = f"{file_name}.mp4"
+file = f"{file_name}.mp3"
 output_path: str = "C:/Users/jorda/Downloads/py_youtube"
 
 downloader(url, output_path, file)

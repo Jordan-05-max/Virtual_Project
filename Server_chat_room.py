@@ -1,8 +1,9 @@
 import threading
 import socket
 
-host = '192.168.1.102'
-port = 59000
+# 'localhost', 9999
+host = '192.168.43.246'
+port = 9999
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server.bind((host, port))
 server.listen()

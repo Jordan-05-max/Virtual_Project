@@ -29,7 +29,7 @@ class dbpassword:
     def fetch(self):
         self.cur.execute("SELECT * from psw")
         rows = self.cur.fetchall()
-        print(rows)
+        print(*rows)
         return rows
     def remove(self, Purpose):
         self.cur.execute("delete from psw where Purpose=?", (Purpose,))
